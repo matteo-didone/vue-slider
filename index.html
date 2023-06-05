@@ -25,23 +25,38 @@
 
             <div class="wrapper">
 
+                <div class="carousel-controls">
+
+                    <div class="carousel-control-btn-container">
+                        <button class="carousel-controls-btn" @click="getPrevious">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="carousel-control-btn-container">
+                        <button class="carousel-controls-btn" @click="getNext">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+
                 <div class="carousel">
                     <div class="carousel-slide">
                         <img :src="carousel[activeIndex].image" :alt="carousel[activeIndex].title">
                     </div>
+
+                    <div class="carousel-description">
+                        <h2>{{ carousel[activeIndex].title }}</h2>
+                        <p>{{ carousel[activeIndex].description }}</p>
+                    </div>
+                    
                 </div>
 
-
-                <div class="carousel-controls">
-
-                    <button class="carousel-controls-btn" @click="getPrevious">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-
-                    <button class="carousel-controls-btn" @click="getNext">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
+                <div class="thumbnail-carousel">
+                    <div class="thumbnail-carousel-slide" v-for="(item, index) in carousel" :key="index" @click="goToThumbnail(index)">
+                        <img :src="item.image" :alt="item.title">
+                    </div>
                 </div>
 
             </div>
