@@ -18,16 +18,41 @@
     <body>
 
         <div class="container">
-            
-            <div class="square">
-
-                <!-- Vue Code Here -->
-                <div id="app">
-                    <h1>{{ message }}</h1>
-                    <img :src="image" alt="random-picture">
-                </div>
-
+            <div class="carousel" id="app">
+    
+                <button class="carousel-button" id="previous">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                </button>
+    
+                <button class="carousel-button" id="next">
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </button>
+    
+                <ul>
+                    
+                </ul>
+    
+                <button class="autoplay-button" id="play">
+                    <i class="fa-regular fa-circle-play"></i>
+                </button>
+    
+                <button class="autoplay-button" id="pause">
+                    <i class="fa-regular fa-circle-pause"></i>
+                </button>
+    
+                <button class="autoplay-button" id="reverse">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </button>
+    
             </div>
+    
+            <section id="thumbnail-carousel">
+                <div class="thumbnails">
+                    <ul class="thumbnail-list"></ul>
+                </div>
+            </section>
+            
+    
         </div>
         
         <script src="script.js"></script>

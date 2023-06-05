@@ -1,33 +1,175 @@
-.container 
+/* Reset default box-sizing */
+*, *:before, *:after 
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.square 
-{
-    background-color: #f2f2f2;
-    border: 2px solid #ccc;
-    padding: 20px;
-    width: 500px;
-    text-align: center;
-}
-
-.image-class
-{
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
-}
-
-h1 
-{
-    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 ul
 {
-    list-style-type: none;
+    margin: 0;
     padding: 0;
+    list-style: none;
+}
+
+.container 
+{ 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+.carousel
+{
+    margin-top: 1rem; /* Add margin at the top for spacing */
+    width: 80vw; /* Full Width */
+    height: 80vh;  /* Full Height */
+    position: relative;  /* Because our buttons will be positioned as "absolute" inside of it */
+    display: flex; /* Display as flex container */
+    justify-content: space-between; /* Center align items horizontally */
+    align-items: flex-end; /* Align items to the bottom */
+}
+
+.slide
+{
+    position: absolute; /* Position Absolute */
+    inset: 0; /* Positioning the slide to the edges of the carousel */
+    opacity: 0; /* Hiding the slides */
+    transition: opacity 2s ease-in-out; /* Adding a transition effect to the slides */
+}
+
+.slide.active
+{
+    display: block; /* Displaying the active slide */
+    opacity: 1; /* Making the active slide visible */
+}
+
+.slide > img 
+{
+    display: block; /* Displaying the image as a block element so that I can easily resize it */
+    width: 100%; /* Full Width */
+    height: 100%; /* Full Height */
+    object-fit: cover; /* Making the image cover the entire slide, while preserving the aspect ratio */
+    object-position: center; /* Positioning the image in the center of the slide */
+}
+
+.carousel-button
+{
+    position: absolute; /* Position Absolute */
+    top: 50%; /* Positioning the button to the middle of the carousel */
+    transform: translateY(-50%); /* Positioning the button to the middle of the carousel */
+    background: none; /* Removing the background */
+    border: none; /* Removing the border */
+    cursor: pointer; /* Making the cursor a pointer */
+    font-size: 4rem; /* Font Size */
+    z-index: 2; /* Making sure that the buttons are on top of the slides */
+    color: rgb(255, 255, 255, .5); /* Setting the color of the buttons */
+    padding: 0 .5rem;
+    background-color: rgb(0, 0, 0, .1);
+}
+
+.autoplay-button
+{
+    position: absolute; /* Position Absolute */
+    background: none; /* Removing the background */
+    border: none; /* Removing the border */
+    cursor: pointer; /* Making the cursor a pointer */
+    font-size: 4rem; /* Font Size */
+    z-index: 2; /* Making sure that the buttons are on top of the slides */
+    color: rgb(255, 255, 255, .5); /* Setting the color of the buttons */
+    padding: 0 .5rem;
+    background-color: rgb(0, 0, 0, .1);
+    margin-bottom: 1rem; /* Add margin at the bottom for spacing */
+}
+
+.carousel-button:hover, .carousel-button:focus
+{
+    color: white; 
+    background-color: rgb(0, 0, 0, .2)
+}
+
+.carousel-button:focus
+{
+    border: 1px solid black; /* Adding a border to the button when it is focused */
+}
+
+#previous
+{
+    left: 1rem; /* Positioning the button to the left of the carousel */
+}
+
+#next
+{
+    right: 1rem; /* Positioning the button to the right of the carousel */
+}
+
+#play 
+{
+    left: 50px; /* Positioning the button to the left */
+    transform: translateX(-50%); /* Adjust the position to center horizontally */
+}
+
+#pause
+{
+    left: 50%; /* Positioning the button to the center horizontally */
+    transform: translateX(-50%); /* Adjust the position to center horizontally */
+}
+
+#reverse 
+{
+    right: 50px; /* Positioning the button to the right */
+    transform: translateX(50%); /* Adjust the position to center horizontally */
+}
+
+/* Sub Carousel */
+#thumbnail-carousel 
+{
+    width: 80vw; /* Full Width */
+    margin: 1rem 0; /* Add margin for spacing */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 2rem;
+}
+
+.thumbnails 
+{
+    display: flex; /* Display as flex container */
+    justify-content: flex-start; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+}
+
+.thumbnail-list 
+{
+    padding: 0; /* Remove default padding */
+    display: flex; /* Display as flex container */
+    justify-content: flex-start; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+    list-style: none; /* Remove default list styles */
+}
+
+.thumbnail-item 
+{
+    flex: 0 0 auto; /* Prevent items from shrinking */
+    margin-right: 1rem; /* Add margin between items */
+}
+
+.thumbnail-item:last-child 
+{
+    margin-right: 0; /* Remove margin for the last item */
+}
+
+.title
+{
+    font-size: 2rem; /* Font Size */
+    margin-top: 8rem; /* Add margin at the top for spacing */
+    margin-bottom: 1rem; /* Add margin at the bottom for spacing */
+    text-align: center; /* Align text to the center */
+}
+
+.description
+{
+    font-size: 1.5rem; /* Font Size */
+    margin-top: 1rem; /* Add margin at the top for spacing */
+    margin-bottom: 1rem; /* Add margin at the bottom for spacing */
+    text-align: center; /* Align text to the center */
 }
