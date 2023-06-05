@@ -60,6 +60,7 @@ createApp({
         }  
     },
 
+    // Method called when the component is mounted
     mounted() {
         const carouselElement = document.querySelector('#app');
 
@@ -72,6 +73,7 @@ createApp({
         carouselElement.addEventListener('mouseleave', this.resumeAutoplay);
     },
 
+    // Method called before the Vue component is unmounted
     beforeUnmount() {
         const carouselElement = document.querySelector('.carousel-container');
     
@@ -153,24 +155,35 @@ createApp({
                 this.startAutoplay();
             }
         },
-        
+
+        // Method to start the autoplay
         startAutoplay() {
+            // Clear the interval to prevent multiple intervals running at the same time
             this.stopAutoplay();
 
+            // Set the interval to change the current element of the carousel automatically
             this.autoplayInterval = setInterval(() => {
+                // If the autoplay is reversed, get the previous element of the carousel
+                // If not, get the next element of the carousel
                 this.isAutoplayReversed ? this.getPrevious() : this.getNext();
             }, 3000);
         },
         
+        // Method to stop the autoplay
         stopAutoplay() {
+            // Clear the interval to prevent multiple intervals running at the same time
             clearInterval(this.autoplayInterval);
         },
 
+        // Method to pause the autoplay
         pauseAutoplay() {
+            // If the autoplay is active, stop the autoplay
             this.stopAutoplay();
         },
 
+        // Method to resume the autoplay
         resumeAutoplay() {
+            // If the autoplay is active, start the autoplay
             if (this.isAutoplayActive) 
             {
                 this.startAutoplay();
