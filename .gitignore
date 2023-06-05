@@ -1,65 +1,9 @@
-# Directories
-.vscode/
+# Ignore node_modules and other build files
 node_modules/
-dist/
-out/
+build/
 
-# Files
-*.log
-*.env
-*.DS_Store
-
-# User-specific files
-.vscode/settings.json
-.vscode/tasks.json
-.vscode/launch.json
-.vscode/extensions.json
-
-# macOS specific files
+# Ignore .DS_Store files on macOS
 .DS_Store
 
-# TypeScript specific files
-*.js
-*.js.map
-*.tsbuildinfo
-
-# JavaScript specific files
-*.js
-*.js.map
-
-# Python specific files
-*.pyc
-*.pyo
-*.env
-*.env.test
-*.env.local
-
-# Jupyter Notebook specific files
-.ipynb_checkpoints/
-*.ipynb
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+# Ignore Thumbs.db files on Windows
+Thumbs.db
