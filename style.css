@@ -1,0 +1,33 @@
+.container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square 
+{
+    background-color: #f2f2f2;
+    border: 2px solid #ccc;
+    padding: 20px;
+    width: 500px;
+    text-align: center;
+}
+
+.image-class
+{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+h1 
+{
+    margin-bottom: 20px;
+}
+
+ul
+{
+    list-style-type: none;
+    padding: 0;
+}
