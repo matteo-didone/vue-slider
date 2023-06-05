@@ -83,6 +83,11 @@ createApp({
             }
         },
 
+        // Method to check if item is active
+        isActive(index) {
+            return index === this.activeIndex;
+        },
+
         // Method to change the current element of the carousel to the one clicked on the thumbnails
         goToThumbnail(newIndex) {
             // Set the active index to the index of the thumbnail clicked
