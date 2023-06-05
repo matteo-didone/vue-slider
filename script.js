@@ -1,5 +1,4 @@
-// Print a message on the screen within an h1 tag, using data.
-// BONUS: Add an image taken from data as well.
+// Create a carousel with Vue.js 
 
 (() => {
 const { createApp } = Vue;
