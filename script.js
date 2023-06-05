@@ -54,10 +54,30 @@ createApp({
             activeIndex: 0,
 
             // Status of the autoplay of the carousel
-            isAutoplayActive: true,
+            isAutoplayActive: false,
             isAutoplayReversed: false,
             autoplayInterval: null
         }  
+    },
+
+    mounted() {
+        const carouselElement = document.querySelector('#app');
+
+        // Start the autoplay when the component is mounted
+        this.startAutoplay();
+
+        // Pause autoplay on mouseenter
+        carouselElement.addEventListener('mouseenter', this.pauseAutoplay);  
+        // Resume autoplay on mouseleave
+        carouselElement.addEventListener('mouseleave', this.resumeAutoplay);
+    },
+
+    beforeUnmount() {
+        const carouselElement = document.querySelector('.carousel-container');
+    
+        // Remove event listeners to prevent memory leaks
+        carouselElement.removeEventListener('mouseenter', this.pauseAutoplay);
+        carouselElement.removeEventListener('mouseleave', this.resumeAutoplay);
     },
 
     // Methods of the app
@@ -144,7 +164,18 @@ createApp({
         
         stopAutoplay() {
             clearInterval(this.autoplayInterval);
-        }
+        },
+
+        pauseAutoplay() {
+            this.stopAutoplay();
+        },
+
+        resumeAutoplay() {
+            if (this.isAutoplayActive) 
+            {
+                this.startAutoplay();
+            }
+        },
     }
 
 }).mount('#app')
