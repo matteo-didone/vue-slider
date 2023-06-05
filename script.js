@@ -106,7 +106,7 @@ createApp({
 
         // Method to change the current element of the carousel automatically
         toggleAutoPlay() {
-            // Check if the autoplay is active or not
+            // The variable this.isAutoplayActive will toggle its value between true and false each time the line of code is executed. This allows to switch the activation of the autoplay by simply clicking the pause/resume play button.
             this.isAutoplayActive = !this.isAutoplayActive;
 
             // If the autoplay is not active, start the autoplay
@@ -120,11 +120,14 @@ createApp({
             }
         },
 
+        // Method to change the current element order of the carousel automatically
         reverseAutoplay() {
-
+            // The variable this.isAutoplayReversed will toggle its value between true and false each time the line of code is executed. This allows to switch the direction of the autoplay by simply clicking the reverse autoplay button.
             this.isAutoplayReversed = !this.isAutoplayReversed;
+            // Reverse the order of the carousel
             this.carousel.reverse();
         
+            // If the autoplay is not active, start the autoplay
             if (this.isAutoplayActive) 
             {
                 this.startAutoplay();
