@@ -1,5 +1,10 @@
 // Create a carousel with Vue.js 
 
+// Bonus:
+// 1- On clicking a thumbnail, display the corresponding image in full size.
+// 2- Apply autoplay to the slider: change the image automatically every 3 seconds.
+// 3- When the mouse hovers over the slider, pause the autoplay and resume it when the mouse exits.
+
 (() => {
 const { createApp } = Vue;
 
@@ -46,7 +51,12 @@ createApp({
             ], 
 
             // Index of the current element of the carousel
-            activeIndex: 0
+            activeIndex: 0,
+
+            // Status of the autoplay of the carousel
+            isAutoplayActive: true,
+            isAutoplayReversed: false,
+            autoplayInterval: null
         }  
     },
 
@@ -89,11 +99,49 @@ createApp({
         },
 
         // Method to change the current element of the carousel to the one clicked on the thumbnails
-        goToThumbnail(newIndex) {
+        goToThumbnailSlide(newIndex) {
             // Set the active index to the index of the thumbnail clicked
             this.activeIndex = newIndex;
-        }
+        },
 
+        // Method to change the current element of the carousel automatically
+        toggleAutoPlay() {
+            // Check if the autoplay is active or not
+            this.isAutoplayActive = !this.isAutoplayActive;
+
+            // If the autoplay is not active, start the autoplay
+            if (this.isAutoplayActive) 
+            {
+                this.startAutoplay();
+            } 
+            else // If the autoplay is active, stop the autoplay
+            {
+                this.stopAutoplay();
+            }
+        },
+
+        reverseAutoplay() {
+
+            this.isAutoplayReversed = !this.isAutoplayReversed;
+            this.carousel.reverse();
+        
+            if (this.isAutoplayActive) 
+            {
+                this.startAutoplay();
+            }
+        },
+        
+        startAutoplay() {
+            this.stopAutoplay();
+
+            this.autoplayInterval = setInterval(() => {
+                this.isAutoplayReversed ? this.getPrevious() : this.getNext();
+            }, 3000);
+        },
+        
+        stopAutoplay() {
+            clearInterval(this.autoplayInterval);
+        }
     }
 
 }).mount('#app')

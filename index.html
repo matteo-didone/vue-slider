@@ -38,7 +38,19 @@
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
+                    
+                </div>
 
+                <div class="carousel-controls-play-reverse">
+                    <div class="carousel-controls">
+                        <button class="carousel-controls-btn" @click="toggleAutoPlay">
+                            <i :class="isAutoplayActive ? 'fas fa-pause' : 'fas fa-play'"></i>
+                        </button>
+                    
+                        <button class="carousel-controls-btn" @click="reverseAutoplay">
+                            <i class="fas fa-undo"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="carousel">
@@ -50,11 +62,11 @@
                         <h2>{{ carousel[activeIndex].title }}</h2>
                         <p>{{ carousel[activeIndex].description }}</p>
                     </div>
-                    
+
                 </div>
 
                 <div class="thumbnail-carousel">
-                    <div class="thumbnail-carousel-slide" v-for="(item, index) in carousel" :key="index" @click="goToThumbnail(index)">
+                    <div class="thumbnail-carousel-slide" v-for="(item, index) in carousel" :key="index" @click="goToThumbnailSlide(index)">
                         <img :src="item.image" :alt="item.title">
                     </div>
                 </div>

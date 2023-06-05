@@ -93,6 +93,20 @@ div.wrapper
     z-index: 1;
 }
 
+.carousel-controls-play-reverse
+{
+    position: absolute;
+    top: 103%;
+    left: 280px;
+    right: 280px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 1;
+}
+
 .carousel-controls-container 
 {
     display: flex;
@@ -129,8 +143,8 @@ div.wrapper
 .thumbnail-carousel-slide 
 {
     flex: 0 0 auto;
-    margin-right: 10px;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .thumbnail-carousel-slide img 
